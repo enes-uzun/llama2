@@ -7,10 +7,10 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
 # Replicate Credentials
 with st.sidebar:
-    st.title('🦙💬 Llama 2 Chatbot')
-    st.write('This chatbot is created using the open-source Llama 2 LLM model from Meta.')
+    st.title('🦙💬 BIGDaTA_Lab Llama 2 Chatbot')
+    st.write('Bu Chatbot, LLAMA2 ile ilgili yapılan projeleri ve finetuning denemelerini incelemek için oluşturulmuştur.\n www.linkedin.com/company/bigdata-lab-m/')
     if 'REPLICATE_API_TOKEN' in st.secrets:
-        st.success('API key already provided!', icon='✅')
+        st.success('API key otomatik olarak girilmiştir.', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
     else:
         replicate_api = st.text_input('Enter Replicate API token:', type='password')
@@ -20,8 +20,8 @@ with st.sidebar:
             st.success('Proceed to entering your prompt message!', icon='👉')
     os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
-    st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B'], key='selected_model')
+    st.subheader('Modeller ve Parametreler:')
+    selected_model = st.sidebar.selectbox('Llama2 modelinizi seçin.', ['Llama2-7B', 'Llama2-13B'], key='selected_model')
     if selected_model == 'Llama2-7B':
         llm = 'a16z-infra/llama7b-v2-chat:4f0a4744c7295c024a1de15e1a63c880d3da035fa1f49bfd344fe076074c8eea'
     elif selected_model == 'Llama2-13B':
@@ -33,7 +33,7 @@ with st.sidebar:
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hi BIGDaTA_Lab Reseracher ! How may I assist you today?"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -41,8 +41,8 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+    st.session_state.messages = [{"role": "assistant", "content": "Hi BIGDaTA_Lab Reseracher !How may I assist you today?"}]
+st.sidebar.button('Chat geçmişini temizle', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response. Refactored from https://github.com/a16z-infra/llama2-chatbot
 def generate_llama2_response(prompt_input):
