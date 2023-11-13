@@ -8,7 +8,7 @@ st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 # Replicate Credentials
 with st.sidebar:
     st.title('🦙💬 BIGDaTA_Lab Llama 2 Chatbot')
-    st.write('Bu Chatbot, LLAMA2 ile ilgili yapılan projeleri ve finetuning denemelerini incelemek için oluşturulmuştur.\n www.linkedin.com/company/bigdata-lab-m/')
+    st.write('Bu Chatbot, LLAMA2 ile ilgili yapılan projeleri ve finetuning denemelerini incelemek için oluşturulmuştur.\n www.linkedin.com/company/bigdata-lab-m/ \n Token ID : r8_19C3JN5w1j2CAJBZgsUIi6I0ovICBYS3UHRlc')
     if 'REPLICATE_API_TOKEN' in st.secrets:
         st.success('API key otomatik olarak girilmiştir.', icon='✅')
         replicate_api = st.secrets['REPLICATE_API_TOKEN']
